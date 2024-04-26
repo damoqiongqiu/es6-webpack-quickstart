@@ -4,7 +4,7 @@
  * 3. WeakMap只有get/set/has/delete这4个API，不能遍历
  * 个人理解：这里的设计完全是从Java里面的WeakMap抄过来的，其特性和API基本上和Java完全一致
  */
-let wm=new WeakMap();
-wm.set({},2);
-wm.set(Symbol(),3);
+let wm = new WeakMap();
+wm.set({}, 2);
+wm.set(Symbol(), 3);
 console.log(wm);
