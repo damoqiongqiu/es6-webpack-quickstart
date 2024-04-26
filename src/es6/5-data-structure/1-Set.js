@@ -1,4 +1,5 @@
 /**
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
  * ES6增加了Set，它是数学里面“集合”的概念，那么问题就来了，数学里面的“集合”有哪些特性？
  * 1. 构造方式
  * 2. 基本方法add()/delete()/has()/clear()
@@ -16,7 +17,6 @@ console.log(...set1);
 
 /**
  * 4. 数学上的集合需要支持交并补运算
- * Note：给学员解释，在以前这些操作都需要借助于第三方library来做，演示lodash的例子
  */
 let a = new Set([1, 2, 3]);
 let b = new Set([4, 3, 2]);
