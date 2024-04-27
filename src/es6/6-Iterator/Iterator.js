@@ -79,7 +79,7 @@ class MyList {
     }
 }
 
-let list = new MyList([
+let myList = new MyList([
     {
         firstName: 'Tom',
         lastName: 'None'
@@ -91,11 +91,14 @@ let list = new MyList([
 ]);
 
 //由于我们已经为 MyList 实现了 Iterator 接口，所以这里可以用 for...of 来遍历我们自己定义的类 MyList 了
-for (let c of list) {
+for (let c of myList) {
     console.log(c)
 }
 
-let iter2 = list[Symbol.iterator]();
+let iter2 = myList[Symbol.iterator]();
 console.log(iter2.next())
 console.log(iter2.next())
 console.log(iter2.next())
+
+//也可以直接用展开操作符展开我们自己的 myList 
+console.log(...myList);
