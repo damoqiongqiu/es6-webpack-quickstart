@@ -38,6 +38,7 @@ console.log(c);
  * 典型场景3：显式调用迭代器
  * Note：这种用法不常见，不建议开发者在业务系统里面采用这样的黑魔法，有炫技的嫌疑。
  * Note：相对于 Java 里面的优雅方式，ES6 提供的这套语法非常糟糕，它需要用到 Symbol 这个东西，不适合人类理解和记忆
+ * （ECMA 委员会主要是从兼容性考虑，引入的 Symbol 这个类型，并不是故意要制造新概念。）
  * Note：这里对比 Java 里面的 Iterator 接口
  */
 let arr = ['a', 'b', 'c'];
@@ -47,3 +48,54 @@ iter.next();
 iter.next();
 iter.next();
 iter.next();
+
+
+/**
+ * 典型场景4：为自定义的数据结构实现 Iterator 迭代器
+ * NOTE：在日常的业务开发中，很少有这样做，一般是偏底层的框架开发者才会写这些东西。
+ */
+class MyList {
+    constructor(items) {
+        this.items = [].concat(items)
+    }
+
+    //实现 iterator 接口规定的方法，这里的语法非常丑陋，但是背后的思路和 Java 中的 Iterator 非常像
+    [Symbol.iterator]() {
+        let count = 0;
+        let items = this.items
+        return {
+            next: function () {
+                let customerVal = items[count];
+                count += 1;
+                if (count <= items.length) {
+                    return {
+                        value: customerVal,
+                        done: false
+                    }
+                }
+                return { done: true }
+            }
+        }
+    }
+}
+
+let list = new MyList([
+    {
+        firstName: 'Tom',
+        lastName: 'None'
+    },
+    {
+        firstName: 'Jerry',
+        lastName: 'None'
+    }
+]);
+
+//由于我们已经为 MyList 实现了 Iterator 接口，所以这里可以用 for...of 来遍历我们自己定义的类 MyList 了
+for (let c of list) {
+    console.log(c)
+}
+
+let iter2 = list[Symbol.iterator]();
+console.log(iter2.next())
+console.log(iter2.next())
+console.log(iter2.next())
