@@ -4,6 +4,7 @@
  * Note：这里可以对照Java的继承机制来理解，在IDEA里面写同样的Java继承案例，然后对照讲解
  */
 
+//关于命名规范，如果采用 OO 的写法，建议全部接受 Java 的编码规范。
 class Animal {
     name = "默认的名字";
     age;
