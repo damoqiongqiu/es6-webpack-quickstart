@@ -32,13 +32,13 @@ class Animal {
     }
 }
 
-class Monkey extends Animal{
+class Monkey extends Animal {
     constructor(name, age) {
         super(name, age);
     }
 }
 
-class Person extends AniMonkeymal {
+class Human extends Monkey {
     constructor(name, age) {
         super(name, age);
     }
@@ -56,12 +56,12 @@ class Person extends AniMonkeymal {
     }
 }
 
-let person = new Person("大漠穷秋", 18);
+let person = new Human("大漠穷秋", 18);
 console.log(person.name);
 person.eat();
 person.run();
 person.coding();
-Person.testStaticMethod();
+Human.testStaticMethod();
 
 //特别注意：没有private/public/protected这些访问修饰符
 //特别注意：原生对象不能继承，这又是一个非常糟糕的点，这种概念上的不一致让开发者理解起来非常难，Java里面不是这样的
