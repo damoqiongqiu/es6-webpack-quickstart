@@ -1,8 +1,8 @@
 {
   "name": "es6-webpack-quickstart",
   "version": "0.1.0",
-  "author": "大漠穷秋",
-  "description": "对照Java学通ES6（含ES7/ES8）",
+  "author": "damoqiongqiu",
+  "description": "Morden JavaScript - ES6",
   "license": "MIT",
   "keywords": [
     "webpack",
