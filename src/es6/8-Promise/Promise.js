@@ -8,31 +8,31 @@
  * 5. Promise.all()
  * 6. Promise.race()
  */
-//1. 理解回调地狱
+//1. 理解回调地狱的问题
 
 //2. Promise的基本用法
 //promise承诺，兑现，拒绝，异常
-let promise=new Promise(function(resolve,reject){
-    setTimeout(()=>{resolve(1)},1000);
+let promise = new Promise(function (resolve, reject) {
+    setTimeout(() => { resolve(1) }, 1000);
 });
-promise.then((value)=>{
+promise.then((value) => {
     console.log(value);
-},(error)=>{});
+}, (error) => { });
 
 //3. 经典场景：封装Ajax操作
-function getData(url){
-    let promise=new Promise(function(resolve,reject){
-        let xhr=new XMLHttpRequest();
-        xhr.open("GET",url);
-        xhr.responseType="json";
-        xhr.setRequestHeader("Accept","application/json");
-        xhr.onreadystatechange=function(){
-            if(this.readyState!==4){
+function getData(url) {
+    let promise = new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.responseType = "json";
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = function () {
+            if (this.readyState !== 4) {
                 return;
             }
-            if(this.status==200){
+            if (this.status == 200) {
                 resolve(this.response);
-            }else{
+            } else {
                 reject(new Error(this.statusText));
             }
         }
@@ -56,14 +56,14 @@ function getData(url){
 // });
 
 //5. Promise.all()
-let promise1=new Promise(function(resolve,reject){
-    setTimeout(reject,1000,1);
+let promise1 = new Promise(function (resolve, reject) {
+    setTimeout(resolve(111), 1000, 1);
 });
-let promise2=new Promise(function(resolve,reject){
-    setTimeout(reject,2000,2);
+let promise2 = new Promise(function (resolve, reject) {
+    setTimeout(resolve(222), 2000, 2);
 });
-let promise3=new Promise(function(resolve,reject){
-    setTimeout(resolve,3000,3);
+let promise3 = new Promise(function (resolve, reject) {
+    setTimeout(resolve(333), 3000, 3);
 });
 //1&&2&&3
 // Promise.all([promise1,promise2,promise3])
@@ -73,14 +73,14 @@ let promise3=new Promise(function(resolve,reject){
 // });
 
 //6. Promise.race()，赛跑模式，整体状态为第一个Promise的返回值，如果第一个返回的Promise为resolve，则整体为resolve，如果第一个返回的为reject，则整体为reject
-Promise.race([promise1,promise2,promise3])
-.then(function(value){
-    console.log(value);
-    //业务逻辑...
-})
-.catch(function(error){
-    console.log(error);
-});
+Promise.race([promise1, promise2, promise3])
+    .then(function (value) {
+        console.log(value);
+        //业务逻辑...
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
 /**
  * Note：Promise依然有很多不优雅的地方：
