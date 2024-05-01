@@ -32,7 +32,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['lodash','transform-decorators-legacy'],
+            plugins: ['lodash', 'transform-decorators-legacy'],
             presets: ['env']
           }
         }
