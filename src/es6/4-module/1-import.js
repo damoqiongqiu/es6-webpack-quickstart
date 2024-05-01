@@ -14,10 +14,10 @@
  * 特别注意：import和export还有一些非常酷炫的花式玩法，比如export和import连写等等，
  * 有兴趣请自行研究，这些特性一般在编写框架的时候用的比较多，日常的业务开发者很少用到。
  */
-import { userName, password, age,addr,obj } from "./1-export";
-import { Animal } from "./1-export";
-import { sayHello } from "./1-export";
-import var1 from "./2-export-default";
+import { userName, password, age,addr,obj } from "./2-export";
+import { Animal } from "./2-export";
+import { sayHello } from "./2-export";
+import var1 from "./3-export-default";
 
 //1. import进来的变量全部是只读的，但是import进来的对象属性可以修改
 console.log(userName);

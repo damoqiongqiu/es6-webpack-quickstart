@@ -6,8 +6,8 @@
 // import './es6/2-build-in-types/function';
 // import './es6/2-build-in-types/object';
 // import './es6/3-data-structure/lodash-example';
-import './es6/6-Iterator/Iterator';
-// import "./es6/4-module/import";
+// import './es6/6-Iterator/Iterator';
+import "./es6/4-module/test";
 // import './es6/class-extends';
 // import './es6/proxy-reflect';
 // import "./es6/7-Proxy-Reflect/Proxy-Reflect";

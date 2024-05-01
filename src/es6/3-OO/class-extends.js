@@ -6,10 +6,6 @@
 
 //关于命名规范，如果采用 OO 的写法，建议全部接受 Java 的编码规范。
 class Animal {
-    name = "默认的名字";
-    age;
-    addr;
-
     constructor(name, age) {
         this.name = name;
         this.age = age;
